@@ -1,22 +1,29 @@
+
 import 'package:flutter/material.dart';
-import 'espera_page.dart';
+import 'package:myapp/home_page.dart';
+import 'package:myapp/page1.dart';
+import 'package:myapp/page2.dart';
 
-void main() => runApp(const SimilaresApp());
+void main() {
+  runApp(const MyApp());
+}
 
-class SimilaresApp extends StatelessWidget {
-  const SimilaresApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Farmacias Similares',
+      title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: const Color(0xFF03346E),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
       ),
-      // La aplicación inicia en la pantalla de espera
-      home: const PantallaEspera(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/page1': (context) => const Page1(),
+        '/page2': (context) => const Page2(),
+      },
     );
   }
 }
